@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_shade"
+    tools:context=".ScannerActivity">
+
+    <ImageView
+        android:id="@+id/idIVCaptureImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/scanner"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/idIVCaptureImage"
+        android:id="@+id/idTVDetectedText"
+        android:textColor="@color/yellow"
+        android:text="Your Result Will Appear here!!"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:padding="4dp"
+        />
+
+    <Button
+        android:id="@+id/idBtnSnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginBottom="100dp"
+        android:text="Snap"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <!--button to detect text from our image-->
+    <Button
+        android:id="@+id/idBtnDetect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/idBtnSnap"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:text="Detect"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

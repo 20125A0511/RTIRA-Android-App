@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538649700637",
+    "project_id": "rtira-beta",
+    "storage_bucket": "rtira-beta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538649700637:android:c5fd4522009fcd9f8799f4",
+        "android_client_info": {
+          "package_name": "com.example.rtira_beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538649700637-4i9cu8j9o9093l3ccq46rpebgbecnqq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5yPXP4yh5-svxam1gLZiVUqXPPvelTsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538649700637-4i9cu8j9o9093l3ccq46rpebgbecnqq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
