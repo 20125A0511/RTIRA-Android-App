@@ -29,13 +29,21 @@ import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
-import com.google.mlkit.vision.text.TextRecognizerOptions;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
+import android.speech.tts.TextToSpeech;
+
+import java.util.Locale;
+
+/*import com.google.mlkit.vision.text.TextRecognizerOptions; */
 
 public class ScannerActivity extends AppCompatActivity {
     private ImageView captureIV;
     private TextView resultTV;
     private Button snapBtn, detectBtn;
+    public Button soundbtn;
+    TextToSpeech t1;
     private Bitmap imageBitmap;
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
@@ -46,6 +54,19 @@ public class ScannerActivity extends AppCompatActivity {
         resultTV = findViewById(R.id.idTVDetectedText);
         snapBtn = findViewById(R.id.idBtnSnap);
         detectBtn = findViewById(R.id.idBtnDetect);
+soundbtn = findViewById(R.id.btnt);
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR){
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+
+
+
         detectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,6 +139,8 @@ private void captureImage() {
     private void detectText()
     {
         InputImage image = InputImage.fromBitmap(imageBitmap,0);
+
+
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
         Task<Text> result = recognizer.process(image).addOnSuccessListener(new OnSuccessListener<Text>() {
             @Override
@@ -137,6 +160,7 @@ private void captureImage() {
                           result.append(elementText);
                       }
                       resultTV.setText(blockText);
+                      sound();
                   }
               }
 
@@ -149,4 +173,21 @@ private void captureImage() {
         });
 
     }
+private void sound()
+{
+    String input = resultTV.getText().toString();
+    Toast.makeText(getApplicationContext(),input,Toast.LENGTH_SHORT).show();
+    soundbtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+
+
+            t1.speak(input,TextToSpeech.QUEUE_FLUSH,null);
+        }
+    });
+}
+
+
+
 }
